@@ -1,0 +1,49 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 20px;
+  
+  
+  h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: $primary-color;
+    
+  }
+
+  h2 {
+    font-size: 0.7rem;
+    color: $text-color;
+    font-weight: 600;
+    width: 230px;
+    text-align: center;
+    margin-top: -10px;
+      margin-bottom: 20px;
+  }
+
+  .signup_btn {
+    margin-top: 20px;
+  }
+
+
+  .have_account {
+    font-size: 0.8rem;
+    font-weight: 600;
+      margin-bottom: 20px;
+  }
+
+    .continue_with {
+        font-size: 0.9rem;
+        color: $primary-color;
+        font-weight: 600;
+          margin-top: 20px;
+    }
+}

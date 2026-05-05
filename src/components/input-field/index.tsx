@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -59,7 +60,7 @@ const Input: React.FC<InputProps> = ({
             className={styles.rightIcon}
             onClick={() => setShowPassword(!showPassword)}
           >
-            {showPassword ? "🙈" : "👁️"}
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
           </button>
         ) : (
           iconRight && <span className={styles.rightIcon}>{iconRight}</span>

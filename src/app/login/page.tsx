@@ -6,6 +6,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Input from "@/components/input-field";
 import Button from "@/components/button";
+import styles from "./styles.module.scss";
+import SocialMedia from "@/components/social-media";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -40,15 +42,16 @@ const LoginPage = () => {
   }, [user]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1>{loading ? "Processing" : "Login"}</h1>
+    <div className={styles.container}>
+      <h1>{loading ? "Processing" : "Login here"}</h1>
+      <h2>Welcome back you’ve been missed!</h2>
 
       <Input
         type="email"
         id="email"
         value={user.email}
         onChange={(e) => setUser({ ...user, email: e.target.value })}
-        placeholder="email"
+        placeholder="Email"
       />
       <hr />
 
@@ -57,12 +60,23 @@ const LoginPage = () => {
         id="password"
         value={user.password}
         onChange={(e) => setUser({ ...user, password: e.target.value })}
-        placeholder="password"
+        placeholder="Password"
       />
 
-      <Button onClick={onLogin}>Login Here</Button>
+      <Link href="/forgot-password" className={styles.forgot}>
+        Forgot your password?
+      </Link>
 
-      <Link href="/signup">Visit Signup page</Link>
+      <Button onClick={onLogin} size="large">
+        Sign in
+      </Button>
+
+      <Link href="/signup" className={styles.create_new}>
+        Create new account
+      </Link>
+
+      <h3 className={styles.continue_with}>Or continue with</h3>
+      <SocialMedia />
     </div>
   );
 };

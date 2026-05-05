@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Button from "@/components/button";
+import styles from "./styles.module.scss";
+import Input from "@/components/input-field";
+import SocialMedia from "@/components/social-media";
+import { error } from "console";
 
 const SignupPage = () => {
   const router = useRouter();
@@ -44,46 +48,39 @@ const SignupPage = () => {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1>{loading ? "Processing" : "Signup"}</h1>
-      <hr />
-      <label htmlFor="username">Username</label>
-      <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+    <div className={styles.container}>
+      <h1>{loading ? "Processing" : "Create account"}</h1>
+      <h2>Create an account so you can explore all the existing jobs</h2>
+
+      <Input
         id="username"
         type="text"
         value={user.username}
         onChange={(e) => setUser({ ...user, username: e.target.value })}
-        placeholder="username"
+        placeholder="Username"
       />
-      <hr />
-      <label htmlFor="email">Email</label>
-      <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+      <Input
         id="email"
         type="text"
         value={user.email}
         onChange={(e) => setUser({ ...user, email: e.target.value })}
-        placeholder="email"
+        placeholder="Email"
       />
-      <hr />
-      <label htmlFor="username">Password</label>
-      <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+      <Input
         id="password"
         type="password"
         value={user.password}
         onChange={(e) => setUser({ ...user, password: e.target.value })}
-        placeholder="password"
+        placeholder="Password"
       />
-      <button
-        onClick={onSignup}
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-      >
-        {buttonDisabled ? "No signup" : "Signup"}
-      </button>
-
-      <Link href="/login">Visit login page</Link>
+      <Button className={styles.signup_btn} onClick={onSignup} size="large">
+        Signup
+      </Button>
+      <Link href="/login" className={styles.have_account}>
+        Already have an account
+      </Link>
+      <h3 className={styles.continue_with}>Or continue with</h3>
+      <SocialMedia />
     </div>
   );
 };

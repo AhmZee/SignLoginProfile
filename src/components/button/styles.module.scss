@@ -10,7 +10,6 @@ display: inline-flex;
   font-weight: 500;
   border-radius: 10px;
   font-size: 1.1rem;
-  box-shadow: lightblue 0px 2px 4px -1px;
   
 
   cursor: pointer;
@@ -25,6 +24,7 @@ display: inline-flex;
   &--primary {
     background-color: $primary-color;
     color: $secondary-color;
+    box-shadow:  lightblue 0px 5px 4px -1px;
 
     &:hover:not(:disabled) {
       opacity: 0.9;
@@ -34,9 +34,10 @@ display: inline-flex;
   &--secondary {
     background-color: $secondary-color;
     color: $text-color;
+    box-shadow:  lightblue 0px 3px 4px -1px;
 
     &:hover:not(:disabled) {
-      opacity: 0.9;
+      opacity: 0.6;
     }
   }
 
@@ -57,6 +58,7 @@ display: inline-flex;
   }
 
   &--large {
+    max-width: 330px;
     width: 100%;
     height: 50px;
     
